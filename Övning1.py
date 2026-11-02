@@ -1,6 +1,7 @@
 import random as rand
 
 ansNum = rand.randint(1,10)
+guesses = 3
 
 print(f"Hej {input("Vad heter du?\n")}.")
 
@@ -11,8 +12,13 @@ def InNum():
         except:
             print("ogilltig input")
 
-guessNum = InNum()
-if guessNum == ansNum:
-    print("rätt")
-else:
-    print(f"fel det var {ansNum}")
+
+for i in range(guesses):
+    guessNum = InNum()
+    if guessNum == ansNum:
+        print("rätt.")
+        break
+    else:
+        print(f"fel {guesses - i - 1} gissningar kvar.")
+        if i == guesses - 1:
+            print(f"Svaret var {ansNum}")
